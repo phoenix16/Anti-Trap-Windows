@@ -1,5 +1,5 @@
 # Anti-Trap-Windows
-A prototype of a car window that prevents the window from rolling up if an obstacle is detected in the path of the moving window.
+A prototype of a car window that detects obstacles in its path and automatically rolls down.
 
 This prevents commonly occurring injuries caused by power windows. Sample situations:
 - The car driver engages the car's power windows to roll up without realizing that a passenger or child's hand is in a window's path.
