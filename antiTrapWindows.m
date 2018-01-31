@@ -1,3 +1,7 @@
+%
+%  Developer : Prakriti Chintalapoodi - c.prakriti@gmail.com 
+%
+
 function antiTrapWindows()
     useAttn = false;
     try
