@@ -1,3 +1,7 @@
+%
+%  Developer : Prakriti Chintalapoodi - c.prakriti@gmail.com 
+%
+
 function testLED(touchFlag)
     % create an arduino object
     a = arduino();
