@@ -1,3 +1,7 @@
+%
+%  Developer : Prakriti Chintalapoodi - c.prakriti@gmail.com 
+%
+
 function testServo()
     % Create an arduino object
     a = arduino();
