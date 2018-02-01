@@ -6,5 +6,5 @@ Sample situations:
 - The car driver engages the car's power windows to roll up without realizing that a passenger or child's hand is in a window's path.
 - A pet's head is in the path of a car window rolling up.
 
-To demonstate this idea, the window rim of a toy car is made touch sensitive but embedding a capacitive touch sensor to it.
+To demonstate this idea, the window rim of a toy car is made touch sensitive by connecting it to a capacitive touch sensor using conducting copper tape.
 An arduino controller simulates the window motion using a servo motor. When a user touches the window rim, the touch controller sends a "Roll Down" command to the arduino powered window.
