@@ -7,4 +7,4 @@ Sample situations:
 - A pet's head is in the path of a car window rolling up.
 
 To demonstate this idea, the window rim of a toy car is made touch sensitive by connecting it to a capacitive touch sensor using conducting copper tape.
-An arduino controller simulates the window motion using a servo motor. When a user touches the window rim, the touch controller sends a "Roll Down" command to the arduino powered window.
+An arduino controller simulates the window motion using a servo motor. When a user touches the window rim while the window is rolling up, the touch controller sends a "Roll Down" command to the arduino powered window.
