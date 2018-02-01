@@ -39,7 +39,6 @@ classdef antiTrapWindows < handle
 
             obj.touchCommObject = TouchComm.make('useAttn', useAttn);
 
-%             idPacket = obj.touchCommObject.identify();
             obj.touchCommObject.makeConfigPackets();
 
             s = obj.touchCommObject.getStaticConfig();
@@ -94,7 +93,6 @@ classdef antiTrapWindows < handle
 
         function getSensorData(obj)
             tic
-            clc
 
             % Initialize touch plot variables
             obj.hFig = figure();
@@ -142,14 +140,9 @@ classdef antiTrapWindows < handle
                 % Check if touched
                 if max(delta) > obj.touchThreshold
                     obj.touchFlag = true;
-%                     disp('                     TOUCH DETECTED!');
                 else
                     obj.touchFlag = false;
                 end
-%
-%                 fprintf('touchFlag = %d\n', obj.touchFlag);
-%                 fprintf('servoAngle = %.2f\n', obj.servoAngle);
-%                 fprintf('angleStep = %.2f\n', obj.angleStep);
 
                 writePosition(obj.servoObject, obj.servoAngle);
 
@@ -168,25 +161,12 @@ classdef antiTrapWindows < handle
                     obj.angleStep = -obj.angleStep;
                 end
 
-%                 disp('before ATW check');
-%                 fprintf('ATW_engaged = %d\n', obj.ATW_engaged);
-%                 fprintf('angleStep = %.2f\n', obj.angleStep);
-
                 if tempServoAngle > 0 && ...
                    obj.touchFlag == true && ...
                    obj.angleStep > 0
-%                     disp('                     ATW ENGAGED!');
                     obj.ATW_engaged = true;
                     obj.angleStep = -obj.angleStep;
                 end
-
-                if obj.ATW_engaged == true
-%                     disp('                     ATW ENGAGED!');
-                end
-
-%                 disp('after ATW check');
-%                 fprintf('ATW_engaged = %d\n', obj.ATW_engaged);
-%                 fprintf('angleStep = %.2f\n', obj.angleStep);
 
                 % Bounds checking if ATW
                 if obj.ATW_engaged == true
@@ -194,13 +174,8 @@ classdef antiTrapWindows < handle
                     if tempServoAngle < obj.lowlimit
                         obj.angleStep = -obj.angleStep;
                         obj.ATW_engaged = false;
-%                         disp('                     ATW OFF!');
                     end
                 end
-
-%                 disp('after ATW bounds check');
-%                 fprintf('ATW_engaged = %d\n', obj.ATW_engaged);
-%                 fprintf('angleStep = %.2f\n\n', obj.angleStep);
 
                 % Increment servo angle
                 obj.servoAngle = obj.servoAngle + obj.angleStep;
@@ -210,8 +185,6 @@ classdef antiTrapWindows < handle
                 obj.plotBox(obj.touchBox, 'k', '-', obj.touchFlag, 'TOUCH');
                 obj.plotBox(obj.ATWBox, 'k', '-', obj.ATW_engaged, 'AUTO REVERSE');
                 obj.plotArrow(obj.angleStep);
-
-
 
                 set(hDeltaPlot, 'YData', delta);
                 set(hRawPlot, 'YData', raw);
